@@ -162,9 +162,11 @@ install_dependencies() {
     if command -v pnpm &> /dev/null; then
         log_info "Using pnpm to install dependencies"
         $SUDO pnpm install --production
+        $SUDO pnpm install yaml --production
     elif command -v npm &> /dev/null; then
         log_info "pnpm not found, using npm instead"
         $SUDO npm install --production
+        $SUDO npm install yaml --production
     else
         log_error "No package manager found (pnpm or npm required)"
         exit 1
